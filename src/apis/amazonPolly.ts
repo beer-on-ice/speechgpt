@@ -1,7 +1,12 @@
-import { Polly } from '@aws-sdk/client-polly';
+import {
+  Polly,
+  Engine,
+  VoiceId,
+  SynthesizeSpeechInput
+} from '@aws-sdk/client-polly';
 import { getSynthesizeSpeechUrl } from '@aws-sdk/polly-request-presigner';
 
-const speechParams = {
+const speechParams: SynthesizeSpeechInput = {
   OutputFormat: 'mp3',
   SampleRate: '16000',
   VoiceId: 'Matthew',
@@ -19,8 +24,8 @@ export default async function speechSynthesizeWithPolly(
   aws_key: string
 ) {
   speechParams.Text = text;
-  speechParams.VoiceId = voiceId;
-  speechParams.Engine = engine;
+  speechParams.VoiceId = voiceId as VoiceId;
+  speechParams.Engine = engine as Engine;
 
   try {
     const polly = new Polly({
