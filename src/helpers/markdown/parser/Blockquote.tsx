@@ -17,5 +17,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'blockquote',
   regexp: BLOCKQUOTE_REG,
-  renderer,
+  renderer
 };

@@ -15,7 +15,7 @@ const renderer = (rawStr: string) => {
 
   try {
     const temp = hljs.highlight(matchResult[2], {
-      language,
+      language
     }).value;
     highlightedCode = temp;
   } catch (error) {
@@ -35,5 +35,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'code block',
   regexp: CODE_BLOCK_REG,
-  renderer,
+  renderer
 };

@@ -12,13 +12,16 @@ import {
   pauseSpeechSynthesis,
   resumeSpeechSynthesis,
   speechSynthesis,
-  stopSpeechSynthesis,
+  stopSpeechSynthesis
 } from '../utils/speechSynthesis';
 
 import { chatDB } from '../db';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useGlobalStore, useSessionStore } from '../store/module';
-import { existEnvironmentVariable, getEnvironmentVariable } from '../helpers/utils';
+import {
+  existEnvironmentVariable,
+  getEnvironmentVariable
+} from '../helpers/utils';
 import { isMobile } from 'react-device-detect';
 import SpeechGPTIcon from './Icons/SpeechGPTIcon';
 import LanguageSelector from './LocaleSelector';
@@ -46,10 +49,15 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
     disableSpeaker,
     setDisableSpeaker,
     disableMicrophone,
-    setDisableMicrophone,
+    setDisableMicrophone
   } = useGlobalStore();
-  const { currentSessionId, sessions, addSession, setCurrentSessionId, setMessageCount } =
-    useSessionStore();
+  const {
+    currentSessionId,
+    sessions,
+    addSession,
+    setCurrentSessionId,
+    setMessageCount
+  } = useSessionStore();
 
   const [sendMessages, setSendMessages] = useState<boolean>(false);
 
@@ -61,7 +69,7 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
         role: l.role,
         content: l.content,
         id: l.id,
-        sessionId: l.sessionId,
+        sessionId: l.sessionId
       })) || []
     );
   }, [chatList]);
@@ -94,19 +102,23 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
 
   useEffect(() => {
     if (currentSessionId) {
-      const count = conversations.filter(c => c.sessionId === currentSessionId).length;
+      const count = conversations.filter(
+        c => c.sessionId === currentSessionId
+      ).length;
       setMessageCount({
         id: currentSessionId,
-        messageCount: count,
+        messageCount: count
       });
     }
   }, [conversations.length]);
 
   const calculateMessageCount = () => {
-    const count = conversations.filter(c => c.sessionId === currentSessionId).length;
+    const count = conversations.filter(
+      c => c.sessionId === currentSessionId
+    ).length;
     setMessageCount({
       id: currentSessionId,
-      messageCount: count,
+      messageCount: count
     });
   };
 
@@ -176,7 +188,7 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
       region: region,
       accessKeyId: accessKeyId,
       secretAccessKey: secretAccessKey,
-      notify: notify,
+      notify: notify
     })
       .then(() => {
         console.log('Audio finished playing');
@@ -202,7 +214,11 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
   useEffect(() => {
     if (response.length !== 0 && response !== 'undefined') {
       setSendMessages(false);
-      chatDB.chat.add({ role: 'assistant', content: response, sessionId: currentSessionId });
+      chatDB.chat.add({
+        role: 'assistant',
+        content: response,
+        sessionId: currentSessionId
+      });
       generateSpeech(response).then();
     }
   }, [response]);
@@ -213,7 +229,8 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
       let conversationsToSent: any = conversations;
       if (!chat.useAssistant) {
         conversationsToSent = conversations.filter(
-          conversation => conversation.role === 'user' || conversation.role === 'system'
+          conversation =>
+            conversation.role === 'user' || conversation.role === 'system'
         );
       }
       conversationsToSent = conversationsToSent.map((conversation: any) => {
@@ -281,7 +298,7 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
     const input_json = {
       role: 'user',
       content: input,
-      sessionId: currentSessionId,
+      sessionId: currentSessionId
     };
     setSendMessages(true);
     chatDB.chat.add(input_json);
@@ -293,7 +310,9 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
 
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
-  const handleInputKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = async event => {
+  const handleInputKeyDown: React.KeyboardEventHandler<
+    HTMLTextAreaElement
+  > = async event => {
     if (event.keyCode === 13 && !event.shiftKey) {
       event.preventDefault(); // Prevents Enter key from submitting form
       if (input.length === 0) {
@@ -302,7 +321,7 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
         const input_json = {
           role: 'user',
           content: input,
-          sessionId: currentSessionId,
+          sessionId: currentSessionId
         };
         setSendMessages(true);
         chatDB.chat.add(input_json);
@@ -315,7 +334,9 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
     } else if (event.keyCode === 13 && event.shiftKey) {
       event.preventDefault(); // Prevents Shift+Enter from creating a new line
       const cursorPosition = event.currentTarget.selectionStart;
-      setInput(input.slice(0, cursorPosition) + '\n' + input.slice(cursorPosition));
+      setInput(
+        input.slice(0, cursorPosition) + '\n' + input.slice(cursorPosition)
+      );
 
       setTimeout(() => {
         if (inputRef.current) {
@@ -363,7 +384,10 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
   const previousConversationsLengthRef = useRef<number>(0);
 
   useEffect(() => {
-    if (conversationRef.current && previousConversationsLengthRef.current < conversations.length) {
+    if (
+      conversationRef.current &&
+      previousConversationsLengthRef.current < conversations.length
+    ) {
       (conversationRef.current as HTMLDivElement).scrollTop = (
         conversationRef.current as HTMLDivElement
       ).scrollHeight;
@@ -427,7 +451,11 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
   useEffect(() => {
     if (voice.autoStart && !disableMicrophone) {
       const prevStatus = prevStatusRef.current;
-      if (prevStatus === 'speaking' && status === 'idle' && conversations.length > 0) {
+      if (
+        prevStatus === 'speaking' &&
+        status === 'idle' &&
+        conversations.length > 0
+      ) {
         setTimeout(() => {
           startRecording();
         }, voice.startTime * 1000);
@@ -482,7 +510,9 @@ const Content: React.FC<ContentProps> = ({ notify }) => {
           setWaiting={setWaiting}
           notify={notify}
           accessCode={
-            existEnvironmentVariable('ACCESS_CODE') ? key.accessCode : 'REPLACE_WITH_YOUR_OWN'
+            existEnvironmentVariable('ACCESS_CODE')
+              ? key.accessCode
+              : 'REPLACE_WITH_YOUR_OWN'
           }
         />
       )}

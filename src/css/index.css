@@ -38,14 +38,16 @@ body {
 }
 
 /* Change the color of arrow */
-.tippy-box[data-theme~='light'][data-placement^='bottom'] > .tippy-arrow::before {
+.tippy-box[data-theme~='light'][data-placement^='bottom']
+  > .tippy-arrow::before {
   border-bottom-color: #4b5563;
 }
 
 select {
   appearance: none; /* remove default arrow */
   padding-right: 1.5em; /* add space for the custom arrow */
-  background: url('../assets/arrow-down.svg') no-repeat right 0.5em center/1em auto;
+  background: url('../assets/arrow-down.svg') no-repeat right 0.5em center/1em
+    auto;
   background-size: 1.2em; /* adjust arrow size */
 }
 
@@ -174,7 +176,8 @@ select {
   box-sizing: border-box;
   font-size: 1.125rem;
   cursor: pointer;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06), inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.04);
   transition: opacity 0.15s ease-in-out;
 }
 

@@ -9,12 +9,18 @@ const speechSynthesizeWithAzure = async (
   language: string
 ) => {
   console.time('Azure speech synthesis');
-  const speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, region);
+  const speechConfig = sdk.SpeechConfig.fromSubscription(
+    subscriptionKey,
+    region
+  );
   speechConfig.speechRecognitionLanguage = language;
   speechConfig.speechSynthesisVoiceName = voiceName;
   const player = new sdk.SpeakerAudioDestination();
   const audioConfig = sdk.AudioConfig.fromSpeakerOutput(player);
-  const speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+  const speechSynthesizer = new sdk.SpeechSynthesizer(
+    speechConfig,
+    audioConfig
+  );
   speechSynthesizer.speakTextAsync(
     text,
     result => {

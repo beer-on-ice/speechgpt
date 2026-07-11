@@ -19,8 +19,12 @@ const renderer = (rawStr: string) => {
   const alignmentRow = tableRows[1];
   const dataRows = tableRows.slice(2);
 
-  const headerCells = parseTableContent(headerRow, /\|/).filter(cell => cell !== '');
-  const alignments = parseTableContent(alignmentRow, /\|/).filter(cell => cell !== '');
+  const headerCells = parseTableContent(headerRow, /\|/).filter(
+    cell => cell !== ''
+  );
+  const alignments = parseTableContent(alignmentRow, /\|/).filter(
+    cell => cell !== ''
+  );
 
   const header = (
     <thead>
@@ -39,7 +43,9 @@ const renderer = (rawStr: string) => {
           {parseTableContent(row, /\|/)
             .filter(cell => cell !== '')
             .map((cell, cellIndex) => (
-              <td key={cellIndex}>{marked(cell, [], inlineElementParserList)}</td>
+              <td key={cellIndex}>
+                {marked(cell, [], inlineElementParserList)}
+              </td>
             ))}
         </tr>
       ))}
@@ -57,5 +63,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'table',
   regexp: TABLE_REG,
-  renderer,
+  renderer
 };

@@ -72,27 +72,27 @@ git clone https://github.com/hahahumble/speechgpt.git
 
 2. 安装所需的依赖项。
 ```shell
-yarn install
+bun install
 ```
 
 3. 启动开发服务器。应用程序应可在 http://localhost:5173 上访问。
 ```shell
-yarn dev 
+bun dev
 ```
 
 4. 为生产环境构建应用程序。输出文件将位于 dist 目录中。
 ```shell
-yarn build
+bun run build
 ```
 
 5. 以生产模式运行应用程序。应用程序应可在 http://localhost:4173 上访问。
 ```shell
-yarn serve
+bun run preview
 ```
 
 代码格式化（使用 Prettier）。
 ```shell
-yarn format
+bun run format
 ```
 
 🚀 开始您的 SpeechGPT 开发之旅吧！如果您在开发过程中遇到任何问题，请随时查阅相关文档或在 GitHub 上提交问题。祝您开发愉快！🎉

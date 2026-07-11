@@ -36,7 +36,7 @@ async function getPollyVoices({
   engine,
   region,
   accessKeyId,
-  secretAccessKey,
+  secretAccessKey
 }: getPollyVoicesOptions) {
   return await speechSynthesizeWithPolly(
     text,
@@ -67,7 +67,7 @@ export function speechSynthesis({
   region,
   accessKeyId,
   secretAccessKey,
-  notify,
+  notify
 }: SpeechSynthesisOptions): Promise<void> {
   return new Promise((resolve, reject) => {
     const speakWithVoice = () => {
@@ -119,7 +119,7 @@ export function speechSynthesis({
           engine: pollyEngineName(engine) || 'neural',
           region: region || 'us-east-1',
           accessKeyId: accessKeyId || '', //
-          secretAccessKey: secretAccessKey || '',
+          secretAccessKey: secretAccessKey || ''
         })
           .then(url => {
             pollyAudio = new Audio(url as string);

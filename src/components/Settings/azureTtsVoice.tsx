@@ -16,7 +16,7 @@ const azureTtsVoice = () => {
     if (!azureSpeechSynthesisVoices[languageCode].includes(speech.azureVoice)) {
       setSpeech({
         ...speech,
-        azureVoice: azureSpeechSynthesisVoices[languageCode][0],
+        azureVoice: azureSpeechSynthesisVoices[languageCode][0]
       });
     }
   }, [languageCode]);
@@ -28,7 +28,9 @@ const azureTtsVoice = () => {
       options={azureSpeechSynthesisVoices[languageCode]}
       value={speech.azureVoice}
       className="min-w-min"
-      selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+      selectClassName={
+        'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+      }
       onChange={e => setSpeech({ ...speech, azureVoice: e })}
     />
   );

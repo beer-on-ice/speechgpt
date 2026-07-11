@@ -5,8 +5,8 @@ import sessionReducer from './reducer/session';
 const store = configureStore({
   reducer: {
     global: globalReducer,
-    session: sessionReducer,
-  },
+    session: sessionReducer
+  }
 });
 
 export default store;

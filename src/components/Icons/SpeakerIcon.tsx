@@ -6,7 +6,10 @@ interface SpeakerIconProps {
   strokeWidth?: string;
 }
 
-const SpeakerIcon: React.FC<SpeakerIconProps> = ({ className, strokeWidth }) => {
+const SpeakerIcon: React.FC<SpeakerIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

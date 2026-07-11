@@ -12,7 +12,7 @@ import {
   IconPlayerPause,
   IconPlayerPlay,
   IconBackspace,
-  IconCheck,
+  IconCheck
 } from '@tabler/icons-react';
 import { useGlobalStore } from '../store/module';
 import { isMobile } from 'react-device-detect';
@@ -40,7 +40,7 @@ function ButtonGroup({
   clearUserInput,
   notify,
   status,
-  finished,
+  finished
 }: ButtonGroupProps) {
   const { i18n } = useTranslation();
   const [isConfirmingReset, setIsConfirmingReset] = useState(false);

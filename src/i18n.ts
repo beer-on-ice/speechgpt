@@ -19,16 +19,16 @@ function getLocaleFromLocalStorage() {
 i18n.use(initReactI18next).init({
   resources: {
     en: {
-      translation: enLocale,
+      translation: enLocale
     },
     zh: {
-      translation: zhLocale,
+      translation: zhLocale
     },
     es: {
-      translation: esLocale,
-    },
+      translation: esLocale
+    }
   },
-  fallbackLng: getLocaleFromLocalStorage() || 'en',
+  fallbackLng: getLocaleFromLocalStorage() || 'en'
 });
 
 export default i18n;

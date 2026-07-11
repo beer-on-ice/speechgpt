@@ -3,7 +3,12 @@ import { useTranslation } from 'react-i18next';
 import BaseDialog from './base/Dialog';
 import TippyButton from './base/TippyButton';
 
-import { IconX, IconInfoCircle, IconWorldWww, IconBrandGithub } from '@tabler/icons-react';
+import {
+  IconX,
+  IconInfoCircle,
+  IconWorldWww,
+  IconBrandGithub
+} from '@tabler/icons-react';
 import SettingGroup from './Settings/base/SettingGroup';
 import { getVersion } from '../utils/version';
 
@@ -39,11 +44,15 @@ function AboutDialog({ open, onClose, notify }: AboutDialogProps) {
             {i18n.t('setting.about.intro')}
           </div>
           <SettingGroup>
-            <div className={'flex flex-col space-y-2 text-left ml-0.5 text-gray-600'}>
+            <div
+              className={
+                'flex flex-col space-y-2 text-left ml-0.5 text-gray-600'
+              }
+            >
               <div>
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: i18n.t('setting.about.about-text') as string,
+                    __html: i18n.t('setting.about.about-text') as string
                   }}
                 ></div>
               </div>
@@ -57,7 +66,10 @@ function AboutDialog({ open, onClose, notify }: AboutDialogProps) {
           <SettingGroup>
             <div className={'text-left ml-0.5 text-gray-600'}>
               <IconWorldWww className="inline mr-1.5 w-5 h-5" />
-              <a href="https://speechgpt.app" className="inline underline hover:text-indigo-600">
+              <a
+                href="https://speechgpt.app"
+                className="inline underline hover:text-indigo-600"
+              >
                 Official Website
               </a>
               <br />

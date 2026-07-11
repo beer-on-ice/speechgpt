@@ -17,14 +17,15 @@ export const globalSlice = createSlice({
       awsKeyId: '',
       awsKey: '',
       azureRegion: '',
-      azureKey: '',
+      azureKey: ''
     },
     chat: {
-      systemRole: 'From now on, the number of words in your reply cannot exceed 50 words.',
+      systemRole:
+        'From now on, the number of words in your reply cannot exceed 50 words.',
       defaultPrompt: '',
       useAssistant: true,
       temperature: 0.8,
-      maxMessages: 20,
+      maxMessages: 20
     },
     speech: {
       service: 'System',
@@ -36,15 +37,15 @@ export const globalSlice = createSlice({
       pollyVoice: '',
       pollyEngine: 'Standard',
       azureLanguage: 'en-US',
-      azureVoice: '',
+      azureVoice: ''
     },
     voice: {
       service: 'System',
       systemLanguage: 'en-US',
       azureLanguage: 'en-US',
       autoStart: false,
-      startTime: 1,
-    },
+      startTime: 1
+    }
   },
   reducers: {
     setLocale: (state, action) => {
@@ -73,8 +74,8 @@ export const globalSlice = createSlice({
     },
     setVoice: (state, action) => {
       state.voice = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -86,7 +87,7 @@ export const {
   setKey,
   setChat,
   setSpeech,
-  setVoice,
+  setVoice
 } = globalSlice.actions;
 
 export default globalSlice.reducer;

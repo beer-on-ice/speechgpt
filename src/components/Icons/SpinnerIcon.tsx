@@ -6,7 +6,10 @@ interface SpinnerIconProps {
   strokeWidth?: string;
 }
 
-const SpinnerIcon: React.FC<SpinnerIconProps> = ({ className, strokeWidth }) => {
+const SpinnerIcon: React.FC<SpinnerIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

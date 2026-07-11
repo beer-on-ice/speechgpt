@@ -33,7 +33,7 @@ function InputPanel({
   setUserInput,
   handleInputKeyDown,
   waiting,
-  notify,
+  notify
 }: InputPanelProps) {
   const { i18n } = useTranslation();
 
@@ -49,7 +49,11 @@ function InputPanel({
           <div>{i18n.t('common.record')}</div>
         </button>
       );
-    } else if (status === 'speaking' || status === 'waiting' || disableMicrophone) {
+    } else if (
+      status === 'speaking' ||
+      status === 'waiting' ||
+      disableMicrophone
+    ) {
       return (
         <button
           type="button"
@@ -95,7 +99,9 @@ function InputPanel({
 
   function SendButton() {
     if (
-      (status === 'idle' || status === 'recording' || status === 'connecting') &&
+      (status === 'idle' ||
+        status === 'recording' ||
+        status === 'connecting') &&
       userInput.length > 0
     ) {
       return (
@@ -109,7 +115,9 @@ function InputPanel({
         </button>
       );
     } else if (
-      (status === 'idle' || status === 'recording' || status === 'connecting') &&
+      (status === 'idle' ||
+        status === 'recording' ||
+        status === 'connecting') &&
       userInput.length == 0
     ) {
       return (

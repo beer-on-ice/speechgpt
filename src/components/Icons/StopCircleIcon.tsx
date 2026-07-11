@@ -6,7 +6,10 @@ interface StopCircleIconProps {
   strokeWidth?: string;
 }
 
-const StopCircleIcon: React.FC<StopCircleIconProps> = ({ className, strokeWidth }) => {
+const StopCircleIcon: React.FC<StopCircleIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

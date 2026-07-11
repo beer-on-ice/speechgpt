@@ -27,7 +27,7 @@ function LanguageSelector() {
   const languages: LanguageOption[] = [
     { code: 'en', name: 'English' },
     { code: 'es', name: 'Español' },
-    { code: 'zh', name: '中文' },
+    { code: 'zh', name: '中文' }
   ];
 
   useEffect(() => {
@@ -45,7 +45,10 @@ function LanguageSelector() {
 
   return (
     <div className="relative inline-block">
-      <span ref={hiddenSpanRef} className="absolute top-0 left-0 opacity-0 -z-10 pr-6">
+      <span
+        ref={hiddenSpanRef}
+        className="absolute top-0 left-0 opacity-0 -z-10 pr-6"
+      >
         {selectedLanguage?.name}
       </span>
       <select

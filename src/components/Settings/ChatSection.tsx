@@ -22,7 +22,7 @@ const openaiModels = [
   'gpt-4',
   'gpt-4-0314', // deprecated on June 14th, 2023
   'gpt-4-32k',
-  'gpt-4-32k-0314', // deprecated on June 14th, 2023
+  'gpt-4-32k-0314' // deprecated on June 14th, 2023
 ];
 
 const ChatSection: React.FC<ChatSectionProps> = ({}) => {
@@ -36,7 +36,9 @@ const ChatSection: React.FC<ChatSectionProps> = ({}) => {
       <SettingGroup>
         {existEnvironmentVariable('OPENAI_API_KEY') ? (
           <SettingCheckText
-            text={i18n.t('setting.chat.already-set-environment-variable') as string}
+            text={
+              i18n.t('setting.chat.already-set-environment-variable') as string
+            }
           />
         ) : (
           <>
@@ -56,7 +58,9 @@ const ChatSection: React.FC<ChatSectionProps> = ({}) => {
               type={'text'}
               value={key.openaiHost}
               onChange={e => setKey({ ...key, openaiHost: e })}
-              placeholder={i18n.t('setting.chat.default-host-address') as string}
+              placeholder={
+                i18n.t('setting.chat.default-host-address') as string
+              }
               className={''}
             />
             <SettingSelect
@@ -64,7 +68,9 @@ const ChatSection: React.FC<ChatSectionProps> = ({}) => {
               options={openaiModels}
               value={key.openaiModel}
               className={'min-w-min pr-8'}
-              selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+              selectClassName={
+                'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+              }
               onChange={e => setKey({ ...key, openaiModel: e })}
             />
           </>

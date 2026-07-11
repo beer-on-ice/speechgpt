@@ -23,5 +23,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'ordered list',
   regexp: ORDERED_LIST_REG,
-  renderer,
+  renderer
 };

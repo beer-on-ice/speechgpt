@@ -12,7 +12,7 @@ import {
   IconGhost,
   IconTrash,
   IconVolume,
-  IconCheck,
+  IconCheck
 } from '@tabler/icons-react';
 import TippyButton from '../base/TippyButton';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,7 +24,8 @@ interface SidebarProps {
 
 function Sidebar({ notify }: SidebarProps) {
   const { i18n } = useTranslation();
-  const { sessions, addSession, setCurrentSessionId, clearSessions } = useSessionStore();
+  const { sessions, addSession, setCurrentSessionId, clearSessions } =
+    useSessionStore();
 
   const scrollContainer = useRef<HTMLDivElement>(null);
   const [searchValue, setSearchValue] = useState('');
@@ -46,7 +47,7 @@ function Sidebar({ notify }: SidebarProps) {
     addSession({
       id: uuidv4(),
       topic: i18n.t('conversations.new-conversation'),
-      messageCount: 0,
+      messageCount: 0
     });
     if (scrollContainer.current) {
       scrollContainer.current.scrollTo({ top: 0, behavior: 'smooth' });
@@ -108,7 +109,10 @@ function Sidebar({ notify }: SidebarProps) {
         }}
         className="mt-2 space-y-2 overflow-y-scroll flex-grow"
       >
-        <Element name="messages" className="flex-grow rounded-lg space-y-1 h-full">
+        <Element
+          name="messages"
+          className="flex-grow rounded-lg space-y-1 h-full"
+        >
           {filteredSessions.length === 0 ? (
             <div className="flex-col flex space-y-2 h-full justify-center">
               <IconGhost className={'w-12 h-12 text-slate-400 mx-auto'} />
@@ -173,7 +177,9 @@ function Sidebar({ notify }: SidebarProps) {
           onClick={addNewConversation}
         >
           <IconPlus className="w-5 h-5 text-slate-500 mx-2" />
-          <div className="text-gray-600 select-none">{i18n.t('conversations.new')}</div>
+          <div className="text-gray-600 select-none">
+            {i18n.t('conversations.new')}
+          </div>
         </button>
         <div className="hover:bg-slate-100 rounded-lg">
           <TippyButton

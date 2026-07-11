@@ -18,7 +18,7 @@ function SettingSelect({
   value,
   onChange,
   className,
-  selectClassName,
+  selectClassName
 }: SettingSelectProps) {
   return (
     <div className={`flex flex-row justify-between ${selectClassName}`}>

@@ -9,12 +9,12 @@ export default async function sendRequest(
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + openaiApiKey,
+      Authorization: 'Bearer ' + openaiApiKey
     },
     body: JSON.stringify({
       model: openaiModel || 'gpt-3.5-turbo',
-      messages: messages,
-    }),
+      messages: messages
+    })
   };
 
   const openaiHostAddress = openaiHost || 'api.openai.com';

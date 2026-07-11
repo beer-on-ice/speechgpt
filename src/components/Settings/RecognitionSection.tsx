@@ -13,7 +13,7 @@ import {
   awsRegions,
   azureRegions,
   azureSpeechRecognitionLanguagesLocale,
-  speechRecognitionSystemLanguagesLocale,
+  speechRecognitionSystemLanguagesLocale
 } from '../../constants/data';
 
 import { browserName, isMobile } from 'react-device-detect';
@@ -65,23 +65,32 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({}) => {
           />
         )}
         {isMobile && (
-          <SettingWarningText text={i18n.t('setting.recognition.mobile-not-supported') as string} />
+          <SettingWarningText
+            text={i18n.t('setting.recognition.mobile-not-supported') as string}
+          />
         )}
         <SettingSelect
           text={i18n.t('setting.recognition.recognition-service') as string}
-          helpText={i18n.t('setting.recognition.recognition-service-tooltip') as string}
+          helpText={
+            i18n.t('setting.recognition.recognition-service-tooltip') as string
+          }
           options={voiceServices}
           value={voice.service}
           className="min-w-min pr-8"
-          selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+          selectClassName={
+            'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+          }
           onChange={e => setVoice({ ...voice, service: e })}
         />
         {voice.service === 'Azure Speech to Text' && (
           <>
-            {existEnvironmentVariable('AZURE_REGION') && existEnvironmentVariable('AZURE_KEY') ? (
+            {existEnvironmentVariable('AZURE_REGION') &&
+            existEnvironmentVariable('AZURE_KEY') ? (
               <SettingCheckText
                 text={
-                  i18n.t('setting.recognition.azure-already-set-environment-variable') as string
+                  i18n.t(
+                    'setting.recognition.azure-already-set-environment-variable'
+                  ) as string
                 }
               />
             ) : (
@@ -97,11 +106,17 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({}) => {
                   onChange={e => setKey({ ...key, azureRegion: e })}
                 />
                 <SettingInput
-                  text={i18n.t('setting.recognition.azure-access-key') as string}
+                  text={
+                    i18n.t('setting.recognition.azure-access-key') as string
+                  }
                   id={'azure-access-key'}
                   type={'text'}
                   value={key.azureKey}
-                  placeholder={i18n.t('setting.recognition.azure-access-key-placeholder') as string}
+                  placeholder={
+                    i18n.t(
+                      'setting.recognition.azure-access-key-placeholder'
+                    ) as string
+                  }
                   onChange={e => setKey({ ...key, azureKey: e })}
                 />
               </>
@@ -120,7 +135,9 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({}) => {
             className={'w-56 pr-8'}
             options={Object.values(speechRecognitionSystemLanguagesLocale)}
             value={speechRecognitionSystemLanguagesLocale[voice.systemLanguage]}
-            onChange={e => setVoice({ ...voice, systemLanguage: getSystemLanguageCode(e) })}
+            onChange={e =>
+              setVoice({ ...voice, systemLanguage: getSystemLanguageCode(e) })
+            }
           />
         )}
         {voice.service === 'Azure Speech to Text' && (
@@ -130,7 +147,9 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({}) => {
             // selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
             options={Object.values(azureSpeechRecognitionLanguagesLocale)}
             value={azureSpeechRecognitionLanguagesLocale[voice.azureLanguage]}
-            onChange={e => setVoice({ ...voice, azureLanguage: getAzureLanguageCode(e) })}
+            onChange={e =>
+              setVoice({ ...voice, azureLanguage: getAzureLanguageCode(e) })
+            }
           />
         )}
         <SettingSwitch
@@ -143,7 +162,9 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({}) => {
           <SettingSlider
             text={i18n.t('setting.recognition.start-time') as string}
             id={'start-time'}
-            helpText={i18n.t('setting.recognition.start-time-tooltip') as string}
+            helpText={
+              i18n.t('setting.recognition.start-time-tooltip') as string
+            }
             value={voice.startTime}
             onChange={e => setVoice({ ...voice, startTime: e })}
             min={'0'}

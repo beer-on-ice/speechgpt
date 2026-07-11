@@ -23,5 +23,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'todo list',
   regexp: TODO_LIST_REG,
-  renderer,
+  renderer
 };

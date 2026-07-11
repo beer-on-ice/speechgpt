@@ -13,7 +13,11 @@ const renderer = (rawStr: string) => {
   }
 
   const level = matchResult[1].length;
-  const parsedContent = marked(matchResult[2], [], [Link, PlainLink, PlainText]);
+  const parsedContent = marked(
+    matchResult[2],
+    [],
+    [Link, PlainLink, PlainText]
+  );
   if (level === 1) {
     return <h1>{parsedContent}</h1>;
   } else if (level === 2) {
@@ -29,5 +33,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'heading',
   regexp: HEADING_REG,
-  renderer,
+  renderer
 };

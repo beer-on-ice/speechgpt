@@ -8,7 +8,15 @@ interface InputProps {
   step?: string;
 }
 
-function Input({ id, type, className, value, placeholder, onChange, step }: InputProps) {
+function Input({
+  id,
+  type,
+  className,
+  value,
+  placeholder,
+  onChange,
+  step
+}: InputProps) {
   return (
     <input
       id={id}

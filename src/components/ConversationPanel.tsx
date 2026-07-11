@@ -6,7 +6,12 @@ import { marked } from '../helpers/markdown';
 import { Chat } from '../db/chat';
 import { useTranslation } from 'react-i18next';
 import { useGlobalStore, useSessionStore } from '../store/module';
-import { IconCheck, IconCopy, IconTrash, IconVolume } from '@tabler/icons-react';
+import {
+  IconCheck,
+  IconCopy,
+  IconTrash,
+  IconVolume
+} from '@tabler/icons-react';
 import { isMobile } from 'react-device-detect';
 
 interface ConversationPanelProps {
@@ -20,7 +25,7 @@ function ConversationPanel({
   conversations,
   deleteContent,
   copyContentToClipboard,
-  generateSpeech,
+  generateSpeech
 }: ConversationPanelProps) {
   const { i18n } = useTranslation();
   const { disableSpeaker } = useGlobalStore();
@@ -67,12 +72,17 @@ function ConversationPanel({
   function isConversationEmpty() {
     return (
       conversations.length === 0 ||
-      conversations.filter(conversation => conversation.sessionId === currentSessionId).length === 0
+      conversations.filter(
+        conversation => conversation.sessionId === currentSessionId
+      ).length === 0
     );
   }
 
   return (
-    <Element name="messages" className="flex-grow border border-slate-300 rounded-lg p-4 mb-4">
+    <Element
+      name="messages"
+      className="flex-grow border border-slate-300 rounded-lg p-4 mb-4"
+    >
       {isConversationEmpty() && <Tips />}
       {conversations
         .filter(conversation => conversation.sessionId === currentSessionId)

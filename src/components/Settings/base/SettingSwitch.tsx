@@ -9,7 +9,13 @@ interface SettingSwitchProps {
   className?: string;
 }
 
-function SettingSwitch({ text, helpText, checked, onChange, className }: SettingSwitchProps) {
+function SettingSwitch({
+  text,
+  helpText,
+  checked,
+  onChange,
+  className
+}: SettingSwitchProps) {
   return (
     <div className="flex flex-row justify-between items-center">
       <SettingSubtitle text={text} helpText={helpText} />

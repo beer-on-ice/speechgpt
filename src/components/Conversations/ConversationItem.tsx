@@ -14,7 +14,7 @@ import {
   IconStar,
   IconStarFilled,
   IconChevronDown,
-  IconStarOff,
+  IconStarOff
 } from '@tabler/icons-react';
 import Tippy from '@tippyjs/react';
 import {
@@ -24,7 +24,7 @@ import {
   OrangeCircle,
   PurpleCircle,
   RedCircle,
-  VioletCircle,
+  VioletCircle
 } from './ConversationIcons';
 
 interface ConversationItemProps {
@@ -48,7 +48,7 @@ const icons = [
   { name: 'Green', icon: 'green-circle' },
   { name: 'Cyan', icon: 'cyan-circle' },
   { name: 'Blue', icon: 'blue-circle' },
-  { name: 'Purple', icon: 'purple-circle' },
+  { name: 'Purple', icon: 'purple-circle' }
   // { name: 'Violet', icon: "violet-circle" },
 ];
 
@@ -60,7 +60,7 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
   messageCount,
   date,
   onClick,
-  notify,
+  notify
 }) => {
   const { i18n } = useTranslation();
 
@@ -71,7 +71,7 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
     sessions,
     setCurrentSessionId,
     setLiked,
-    setIcon,
+    setIcon
   } = useSessionStore();
 
   const [isEditing, setIsEditing] = useState(false);
@@ -158,15 +158,23 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
   const actionList = [
     {
       icon: liked ? IconStarOff : IconStar,
-      name: liked ? i18n.t('conversations.unlike') : i18n.t('conversations.like'),
-      onClick: handleLikeClick,
+      name: liked
+        ? i18n.t('conversations.unlike')
+        : i18n.t('conversations.like'),
+      onClick: handleLikeClick
     },
-    { icon: IconEdit, name: i18n.t('conversations.edit'), onClick: handleTitleEdit },
+    {
+      icon: IconEdit,
+      name: i18n.t('conversations.edit'),
+      onClick: handleTitleEdit
+    },
     {
       icon: isConfirmingDelete ? IconCheck : IconTrash,
-      name: isConfirmingDelete ? i18n.t('conversations.confirm') : i18n.t('conversations.delete'),
-      onClick: handleDeleteClick,
-    },
+      name: isConfirmingDelete
+        ? i18n.t('conversations.confirm')
+        : i18n.t('conversations.delete'),
+      onClick: handleDeleteClick
+    }
     // { icon: IconAdjustmentsHorizontal, name: 'Configure' },
   ];
 
@@ -200,7 +208,10 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
       {isEditing ? (
         <div className="text-left flex items-center space-x-2">
           <Popover as="div" className="flex">
-            <Popover.Button id="icon-button" onMouseDown={event => event.stopPropagation()}>
+            <Popover.Button
+              id="icon-button"
+              onMouseDown={event => event.stopPropagation()}
+            >
               <Tippy
                 content={i18n.t('conversations.change-icon')}
                 placement="bottom"
@@ -211,7 +222,9 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
                 theme={'light'}
                 className={'focus:ring-0 outline-0'}
               >
-                <div className="py-1 focus:ring-0 outline-0">{ConversationIcon(icon)}</div>
+                <div className="py-1 focus:ring-0 outline-0">
+                  {ConversationIcon(icon)}
+                </div>
               </Tippy>
             </Popover.Button>
             <Transition
@@ -258,9 +271,15 @@ const ConversationItem: React.FC<ConversationItemProps> = ({
         </div>
       ) : (
         <div className="text-left flex items-center space-x-2">
-          {liked && <IconStarFilled className="w-4 h-4 text-yellow-500 flex-nowrap" />}
+          {liked && (
+            <IconStarFilled className="w-4 h-4 text-yellow-500 flex-nowrap" />
+          )}
           {!liked && ConversationIcon(icon)}
-          <div className={`text-gray-700 truncate w-44 ${developer && 'bg-blue-200'}`}>
+          <div
+            className={`text-gray-700 truncate w-44 ${
+              developer && 'bg-blue-200'
+            }`}
+          >
             {currentTitle}
           </div>
         </div>

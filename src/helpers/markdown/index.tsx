@@ -7,7 +7,10 @@ type Parser = {
   renderer: (rawStr: string) => JSX.Element | string;
 };
 
-const findMatchingParser = (parsers: Parser[], markdownStr: string): Parser | undefined => {
+const findMatchingParser = (
+  parsers: Parser[],
+  markdownStr: string
+): Parser | undefined => {
   let matchedParser = undefined;
   let matchedIndex = -1;
 
@@ -108,7 +111,7 @@ export const getMatchedNodes = (markdownStr: string): MatchedNode[] => {
         const retainContent = markdownStr.slice(matchedStr.length);
         matchedNodeList.push({
           parserName: matchedBlockParser.name,
-          matchedContent: matchedStr,
+          matchedContent: matchedStr
         });
 
         if (matchedBlockParser.name === 'br') {
@@ -118,7 +121,11 @@ export const getMatchedNodes = (markdownStr: string): MatchedNode[] => {
             walkthrough(matchedStr, [], inlineParsers);
           }
           if (retainContent.startsWith('\n')) {
-            return walkthrough(retainContent.slice(1), blockParsers, inlineParsers);
+            return walkthrough(
+              retainContent.slice(1),
+              blockParsers,
+              inlineParsers
+            );
           }
         }
         return '';
@@ -135,7 +142,7 @@ export const getMatchedNodes = (markdownStr: string): MatchedNode[] => {
         const suffixStr = markdownStr.slice(mIndex + matchedLength);
         matchedNodeList.push({
           parserName: matchedInlineParser.name,
-          matchedContent: matchedStr,
+          matchedContent: matchedStr
         });
         return walkthrough(suffixStr, [], inlineParsers);
       }

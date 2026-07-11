@@ -6,7 +6,10 @@ interface StartCircleIconProps {
   strokeWidth?: string;
 }
 
-const StartCircleIcon: React.FC<StartCircleIconProps> = ({ className, strokeWidth }) => {
+const StartCircleIcon: React.FC<StartCircleIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

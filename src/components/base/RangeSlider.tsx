@@ -8,7 +8,15 @@ interface RangeSliderProps {
   step?: string | number;
 }
 
-function RangeSlider({ id, value, onChange, className, min, max, step }: RangeSliderProps) {
+function RangeSlider({
+  id,
+  value,
+  onChange,
+  className,
+  min,
+  max,
+  step
+}: RangeSliderProps) {
   return (
     <input
       id={id}

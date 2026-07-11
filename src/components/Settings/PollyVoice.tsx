@@ -5,7 +5,7 @@ import {
   pollyStandardSupportedLanguages,
   pollyStandardVoices,
   pollyNeuralVoices,
-  pollyNeuralSupportedLanguages,
+  pollyNeuralSupportedLanguages
 } from '../../constants/data';
 import { useGlobalStore } from '../../store/module';
 import { useTranslation } from 'react-i18next';
@@ -25,7 +25,7 @@ const PollyVoice = () => {
       if (!pollyStandardVoices[languageCode].includes(speech.pollyVoice)) {
         setSpeech({
           ...speech,
-          pollyVoice: pollyStandardVoices[languageCode][0],
+          pollyVoice: pollyStandardVoices[languageCode][0]
         });
       }
     } else if (
@@ -33,7 +33,10 @@ const PollyVoice = () => {
       speech.pollyEngine === 'Neural'
     ) {
       if (!pollyNeuralVoices[languageCode].includes(speech.pollyVoice)) {
-        setSpeech({ ...speech, pollyVoice: pollyNeuralVoices[languageCode][0] });
+        setSpeech({
+          ...speech,
+          pollyVoice: pollyNeuralVoices[languageCode][0]
+        });
       }
     }
   }, [languageCode]);

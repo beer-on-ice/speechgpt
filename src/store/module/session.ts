@@ -9,7 +9,11 @@ function deepMerge(obj1: any, obj2: any) {
 
   for (const key in obj2) {
     if (obj2.hasOwnProperty(key)) {
-      if (typeof obj2[key] === 'object' && obj2[key] !== null && !Array.isArray(obj2[key])) {
+      if (
+        typeof obj2[key] === 'object' &&
+        obj2[key] !== null &&
+        !Array.isArray(obj2[key])
+      ) {
         result[key] = deepMerge(obj1[key], obj2[key]);
       } else {
         result[key] = obj2[key];
@@ -32,7 +36,7 @@ export const initialSessionState = () => {
     for (let [key, value] of Object.entries(state)) {
       store.dispatch({
         type: `session/set${key.charAt(0).toUpperCase() + key.slice(1)}`,
-        payload: value,
+        payload: value
       });
     }
 
@@ -68,7 +72,10 @@ export const useSessionStore = (): SessionStore => {
   }, []);
 
   const setCurrentSessionId = (currentSessionId: string) => {
-    dispatch({ type: 'session/setCurrentSessionId', payload: currentSessionId });
+    dispatch({
+      type: 'session/setCurrentSessionId',
+      payload: currentSessionId
+    });
   };
 
   const setSessions = (session: any) => {
@@ -113,6 +120,6 @@ export const useSessionStore = (): SessionStore => {
     clearSessions,
     setMessageCount,
     setLiked,
-    setIcon,
+    setIcon
   };
 };

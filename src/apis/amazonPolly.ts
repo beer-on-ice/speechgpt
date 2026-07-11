@@ -7,7 +7,7 @@ const speechParams = {
   VoiceId: 'Matthew',
   TextType: 'text',
   Text: '',
-  Engine: 'neural',
+  Engine: 'neural'
 };
 
 export default async function speechSynthesizeWithPolly(
@@ -27,8 +27,8 @@ export default async function speechSynthesizeWithPolly(
       region: aws_region,
       credentials: {
         accessKeyId: aws_id,
-        secretAccessKey: aws_key,
-      },
+        secretAccessKey: aws_key
+      }
     });
     // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Polly.html#synthesizeSpeech-property
     return getSynthesizeSpeechUrl({ client: polly, params: speechParams });

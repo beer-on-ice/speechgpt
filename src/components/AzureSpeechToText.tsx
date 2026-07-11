@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk';
-import { existEnvironmentVariable, getEnvironmentVariable } from '../helpers/utils';
+import {
+  existEnvironmentVariable,
+  getEnvironmentVariable
+} from '../helpers/utils';
 
 interface AzureSpeechToTextProps {
   subscriptionKey: string;
   region: string;
   isListening: boolean;
   language?: string;
-  setTranscript: (update: ((prevTranscript: string) => string) | string) => void;
-  setIsListening: (update: ((prevIsListening: boolean) => boolean) | boolean) => void;
+  setTranscript: (
+    update: ((prevTranscript: string) => string) | string
+  ) => void;
+  setIsListening: (
+    update: ((prevIsListening: boolean) => boolean) | boolean
+  ) => void;
   setWaiting: (update: ((prevWaiting: boolean) => boolean) | boolean) => void;
   notify: any;
   accessCode: string;
@@ -23,9 +30,11 @@ const AzureSpeechToText: React.FC<AzureSpeechToTextProps> = ({
   setTranscript,
   setWaiting,
   notify,
-  accessCode,
+  accessCode
 }) => {
-  const [recognizer, setRecognizer] = useState<sdk.SpeechRecognizer | null>(null);
+  const [recognizer, setRecognizer] = useState<sdk.SpeechRecognizer | null>(
+    null
+  );
 
   React.useEffect(() => {
     if (isListening) {
@@ -56,7 +65,10 @@ const AzureSpeechToText: React.FC<AzureSpeechToTextProps> = ({
       return;
     }
 
-    const speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, region);
+    const speechConfig = sdk.SpeechConfig.fromSubscription(
+      subscriptionKey,
+      region
+    );
     speechConfig.speechRecognitionLanguage = language;
 
     const audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();

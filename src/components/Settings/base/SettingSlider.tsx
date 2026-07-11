@@ -26,7 +26,7 @@ function SettingSlider({
   step,
   inputClassName,
   sliderClassName,
-  onChange,
+  onChange
 }: SettingSliderProps) {
   useEffect(() => {
     if (value < parseFloat(min)) {

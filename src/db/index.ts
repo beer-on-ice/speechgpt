@@ -9,14 +9,14 @@ class ChatDB extends Dexie {
     this.version(2).stores({
       chat: `
         ++id
-        `,
+        `
     });
 
     this.version(3).stores({
       chat: `
         ++id,
         sessionId
-        `,
+        `
     });
   }
 

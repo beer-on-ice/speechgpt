@@ -4,14 +4,19 @@ import {} from './Notification';
 interface BrowserSpeechToTextProps {
   isListening: boolean;
   language: string;
-  setIsListening: (update: ((prevIsListening: boolean) => boolean) | boolean) => void;
-  setTranscript: (update: ((prevTranscript: string) => string) | string) => void;
+  setIsListening: (
+    update: ((prevIsListening: boolean) => boolean) | boolean
+  ) => void;
+  setTranscript: (
+    update: ((prevTranscript: string) => string) | string
+  ) => void;
   notify: any;
 }
 
 const SpeechRecognition =
   ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) &&
-  ((window as any).SpeechRecognition || (window as any).webkitSpeechRecognition);
+  ((window as any).SpeechRecognition ||
+    (window as any).webkitSpeechRecognition);
 
 const globalRecognition = SpeechRecognition ? new SpeechRecognition() : null;
 
@@ -20,9 +25,11 @@ const BrowserSpeechToText: React.FC<BrowserSpeechToTextProps> = ({
   language,
   setIsListening,
   setTranscript,
-  notify,
+  notify
 }) => {
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(globalRecognition);
+  const [recognition, setRecognition] = useState<SpeechRecognition | null>(
+    globalRecognition
+  );
 
   useEffect(() => {
     if (recognition) {

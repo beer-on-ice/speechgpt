@@ -18,7 +18,7 @@ function SettingTextArea({
   onChange,
   className,
   placeholder,
-  maxRows,
+  maxRows
 }: SettingTextAreaProps) {
   return (
     <div className={'flex flex-col space-y-2'}>

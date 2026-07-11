@@ -19,7 +19,8 @@ function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const { speech, setSpeech, voice, setVoice } = useGlobalStore();
-  const { sessions, addSession, setCurrentSessionId, currentSessionId } = useSessionStore();
+  const { sessions, addSession, setCurrentSessionId, currentSessionId } =
+    useSessionStore();
 
   const [openSetting, setOpenSetting] = useState<boolean>(false);
   const [openAbout, setOpenAbout] = useState<boolean>(false);
@@ -35,7 +36,8 @@ function Home() {
     invalidOpenAiModelNotify: Notify.invalidOpenAiModelNotify,
     emptyOpenAiKeyNotify: Notify.emptyOpenAiKeyNotify,
     deletedNotify: Notify.deletedNotify,
-    errorBuiltinSpeechRecognitionNotify: Notify.errorBuiltinSpeechRecognitionNotify,
+    errorBuiltinSpeechRecognitionNotify:
+      Notify.errorBuiltinSpeechRecognitionNotify,
     errorBuiltinSpeechSynthesisNotify: Notify.errorBuiltinSpeechSynthesisNotify,
     azureSynthesisErrorNotify: Notify.azureSynthesisErrorNotify,
     azureRecognitionErrorNotify: Notify.azureRecognitionErrorNotify,
@@ -44,7 +46,7 @@ function Home() {
     invalidAzureKeyNotify: Notify.invalidAzureKeyNotify,
     cannotBeEmptyNotify: Notify.cannotBeEmptyNotify,
     invalidAccessCodeNotify: Notify.invalidAccessCodeNotify,
-    allConversationClearNotify: Notify.allConversationClearNotify,
+    allConversationClearNotify: Notify.allConversationClearNotify
   };
 
   const toggleSidebar = () => {
@@ -67,7 +69,7 @@ function Home() {
       addSession({
         id: uuid,
         topic: i18n.t('conversations.new-conversation'),
-        messageCount: 0,
+        messageCount: 0
       });
       setCurrentSessionId(uuid);
     }
@@ -80,12 +82,23 @@ function Home() {
     <div className="bg-slate-100 flex h-full relative">
       <Toaster />
       <SettingDialog open={openSetting} onClose={() => setOpenSetting(false)} />
-      <AboutDialog open={openAbout} onClose={() => setOpenAbout(false)} notify={notifyDict} />
+      <AboutDialog
+        open={openAbout}
+        onClose={() => setOpenAbout(false)}
+        notify={notifyDict}
+      />
       <div
         className={`z-10 w-80 py-8 px-4 lg:ml-3 bg-white rounded-2xl absolute lg:relative transition-transform duration-500 ease-in-out ${
-          sidebarOpen ? 'transform translate-x-0 ml-3' : 'transform -translate-x-full'
+          sidebarOpen
+            ? 'transform translate-x-0 ml-3'
+            : 'transform -translate-x-full'
         } lg:transform lg:translate-x-0`}
-        style={{ zIndex: 1, height: 'calc(100% - 24px)', marginTop: '12px', marginBottom: '12px' }}
+        style={{
+          zIndex: 1,
+          height: 'calc(100% - 24px)',
+          marginTop: '12px',
+          marginBottom: '12px'
+        }}
       >
         <Sidebar notify={notifyDict} />
       </div>
@@ -105,7 +118,10 @@ function Home() {
         </button>
       </div>
       <div className="absolute top-4 right-4 rounded-lg">
-        <EllipsisMenu setOpenSetting={setOpenSetting} setOpenAbout={setOpenAbout} />
+        <EllipsisMenu
+          setOpenSetting={setOpenSetting}
+          setOpenAbout={setOpenAbout}
+        />
       </div>
       {sidebarOpen && (
         <div

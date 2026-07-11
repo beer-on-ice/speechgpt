@@ -21,7 +21,7 @@ const awsRegions = [
   'me-south-1',
   'sa-east-1',
   'us-gov-east-1',
-  'us-gov-west-1',
+  'us-gov-west-1'
 ];
 // Speech Synthesis
 const speechSynthesisServices = ['System', 'Amazon Polly', 'Azure TTS'];
@@ -102,7 +102,7 @@ const speechSynthesisSystemLanguages: { [key: string]: string } = {
   ur: 'اردو', // Urdu
   uz: 'Oʻzbekcha', // Uzbek
   cy: 'Cymraeg', // Welsh
-  zu: 'isiZulu', // Zulu
+  zu: 'isiZulu' // Zulu
 };
 
 // 2. Amazon Polly
@@ -146,7 +146,7 @@ const amazonPollyLanguages: { [key: string]: string } = {
   'es-US': 'Español (Estados Unidos)', // Spanish (US)
   'sv-SE': 'Svenska', // Swedish
   'tr-TR': 'Türkçe', // Turkish
-  'cy-GB': 'Cymraeg', // Welsh
+  'cy-GB': 'Cymraeg' // Welsh
 };
 
 const pollyStandardVoices: { [key: string]: string[] } = {
@@ -157,7 +157,16 @@ const pollyStandardVoices: { [key: string]: string[] } = {
   'en-AU': ['Nicole', 'Russell'],
   'en-GB': ['Amy', 'Emma', 'Brian'],
   'en-IN': ['Aditi ', 'Raveena'],
-  'en-US': ['Ivy', 'Joanna', 'Kendra', 'Kimberly', 'Salli', 'Joey', 'Justin', 'Matthew'],
+  'en-US': [
+    'Ivy',
+    'Joanna',
+    'Kendra',
+    'Kimberly',
+    'Salli',
+    'Joey',
+    'Justin',
+    'Matthew'
+  ],
   'en-GB-WLS': ['Geraint'],
   'fr-FR': ['Céline/Celine', 'Léa', 'Mathieu'],
   'fr-CA': ['Chantal'],
@@ -178,7 +187,7 @@ const pollyStandardVoices: { [key: string]: string[] } = {
   'es-US': ['Lupe', 'Penélope/Penelope', 'Miguel'],
   'sv-SE': ['Astrid'],
   'tr-TR': ['Filiz'],
-  'cy-GB': ['Gwyneth'],
+  'cy-GB': ['Gwyneth']
 };
 
 const pollyNeuralVoices: { [key: string]: string[] } = {
@@ -203,7 +212,7 @@ const pollyNeuralVoices: { [key: string]: string[] } = {
     'Kevin',
     'Matthew',
     'Ruth',
-    'Stephen',
+    'Stephen'
   ],
   'fi-FI': ['Suvi'],
   'fr-FR': ['Léa', 'Rémi'],
@@ -221,7 +230,7 @@ const pollyNeuralVoices: { [key: string]: string[] } = {
   'es-ES': ['Lucia', 'Sergio'],
   'es-MX': ['Mia', 'Andrés'],
   'es-US': ['Lupe', 'Pedro'],
-  'sv-SE': ['Elin'],
+  'sv-SE': ['Elin']
 };
 
 const pollyStandardSupportedLanguages = [
@@ -253,7 +262,7 @@ const pollyStandardSupportedLanguages = [
   'cmn-CN',
   'tr-TR',
   'es-MX',
-  'en-AU',
+  'en-AU'
 ];
 
 const pollyNeuralSupportedLanguages = [
@@ -284,7 +293,7 @@ const pollyNeuralSupportedLanguages = [
   'en-US',
   'fi-FI',
   'pl-PL',
-  'en-ZA',
+  'en-ZA'
 ];
 
 // 3. Azure TTS
@@ -319,7 +328,7 @@ const azureRegions = [
   'westeurope',
   'westindia',
   'westus',
-  'westus2',
+  'westus2'
 ];
 
 const azureSpeechSynthesisLanguagesLocale: { [key: string]: string } = {
@@ -469,7 +478,7 @@ const azureSpeechSynthesisLanguagesLocale: { [key: string]: string } = {
   // "zh-CN-sichuan": "中文 (四川)",
   'zh-HK': '中文 (香港)',
   'zh-TW': '中文 (台湾)',
-  'zu-ZA': 'isiZulu',
+  'zu-ZA': 'isiZulu'
 };
 
 const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
@@ -517,7 +526,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'de-DE-LouisaNeural',
     'de-DE-MajaNeural',
     'de-DE-RalfNeural',
-    'de-DE-TanjaNeural',
+    'de-DE-TanjaNeural'
   ],
   'el-GR': ['el-GR-AthinaNeural', 'el-GR-NestorasNeural'],
   'en-AU': ['en-AU-NatashaNeural', 'en-AU-WilliamNeural'],
@@ -534,7 +543,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'en-GB-NoahNeural',
     'en-GB-OliverNeural',
     'en-GB-OliviaNeural',
-    'en-GB-ThomasNeural',
+    'en-GB-ThomasNeural'
   ],
   'en-HK': ['en-HK-SamNeural', 'en-HK-YanNeural'],
   'en-IE': ['en-IE-ConnorNeural', 'en-IE-EmilyNeural'],
@@ -567,7 +576,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'en-US-NancyNeural',
     'en-US-SaraNeural',
     'en-US-SteffanNeural',
-    'en-US-TonyNeural',
+    'en-US-TonyNeural'
   ],
   'en-ZA': ['en-ZA-LeahNeural', 'en-ZA-LukeNeural'],
   'es-AR': ['es-AR-ElenaNeural', 'es-AR-TomasNeural'],
@@ -596,7 +605,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'es-MX-NuriaNeural',
     'es-MX-PelayoNeural',
     'es-MX-RenataNeural',
-    'es-MX-YagoNeural',
+    'es-MX-YagoNeural'
   ],
   'es-NI': ['es-NI-FedericoNeural', 'es-NI-YolandaNeural'],
   'es-PA': ['es-PA-MargaritaNeural', 'es-PA-RobertoNeural'],
@@ -627,7 +636,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'fr-FR-JosephineNeural',
     'fr-FR-MauriceNeural',
     'fr-FR-YvesNeural',
-    'fr-FR-YvetteNeural',
+    'fr-FR-YvetteNeural'
   ],
   'ga-IE': ['ga-IE-ColmNeural', 'ga-IE-OrlaNeural'],
   'gl-ES': ['gl-ES-RoiNeural', 'gl-ES-SabelaNeural'],
@@ -652,7 +661,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'it-IT-LisandroNeural',
     'it-IT-PalmiraNeural',
     'it-IT-PierinaNeural',
-    'it-IT-RinaldoNeural',
+    'it-IT-RinaldoNeural'
   ],
   'ja-JP': ['ja-JP-KeitaNeural', 'ja-JP-NanamiNeural'],
   'jv-ID': ['jv-ID-DimasNeural', 'jv-ID-SitiNeural'],
@@ -692,7 +701,7 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'pt-BR-ManuelaNeural',
     'pt-BR-NicolauNeural',
     'pt-BR-ValerioNeural',
-    'pt-BR-YaraNeural',
+    'pt-BR-YaraNeural'
   ],
   'pt-PT': ['pt-PT-DuarteNeural', 'pt-PT-FernandaNeural', 'pt-PT-RaquelNeural'],
   'ro-RO': ['ro-RO-AlinaNeural', 'ro-RO-EmilNeural'],
@@ -740,13 +749,17 @@ const azureSpeechSynthesisVoices: { [key: string]: string[] } = {
     'zh-CN-YunxiNeural',
     'zh-CN-YunyangNeural',
     'zh-CN-YunyeNeural',
-    'zh-CN-YunzeNeural',
+    'zh-CN-YunzeNeural'
   ],
   'zh-CN-henan': ['zh-CN-henan-YundengNeural'],
   'zh-CN-shandong': ['zh-CN-shandong-YunxiangNeural'],
   'zh-HK': ['zh-HK-HiuGaaiNeural', 'zh-HK-HiuMaanNeural'],
-  'zh-TW': ['zh-TW-HsiaoChenNeural', 'zh-TW-HsiaoYuNeural', 'zh-TW-YunJheNeural'],
-  'zu-ZA': ['zu-ZA-ThandoNeural', 'zu-ZA-ThembaNeural'],
+  'zh-TW': [
+    'zh-TW-HsiaoChenNeural',
+    'zh-TW-HsiaoYuNeural',
+    'zh-TW-YunJheNeural'
+  ],
+  'zu-ZA': ['zu-ZA-ThandoNeural', 'zu-ZA-ThembaNeural']
 };
 // Speech Recognition
 
@@ -816,7 +829,7 @@ const speechRecognitionSystemLanguagesLocale: { [key: string]: string } = {
   'no-NO': 'Norsk',
   'sk-SK': 'Slovenčina',
   'uk-UA': 'Українська',
-  'vi-VN': 'Tiếng Việt',
+  'vi-VN': 'Tiếng Việt'
 };
 
 // 2. Azure Speech Services
@@ -961,7 +974,7 @@ const azureSpeechRecognitionLanguagesLocale: { [key: string]: string } = {
   'zh-CN-sichuan': '四川话（中国）',
   'zh-HK': '中文（香港）',
   'zh-TW': '中文（台灣）',
-  'zu-ZA': 'isiZulu (iNingizimu Afrika)',
+  'zu-ZA': 'isiZulu (iNingizimu Afrika)'
 };
 
 // 139 languages
@@ -1105,7 +1118,7 @@ const azureSpeechRecognitionLanguages: { [key: string]: string } = {
   'zh-CN-sichuan': 'Sichuanese (China)',
   'zh-HK': 'Chinese (Hong Kong)',
   'zh-TW': 'Chinese (Taiwan)',
-  'zu-ZA': 'Zulu (South Africa)',
+  'zu-ZA': 'Zulu (South Africa)'
 };
 
 export {
@@ -1124,5 +1137,5 @@ export {
   // speechRecognitionSystemLanguages,
   speechRecognitionSystemLanguagesLocale,
   azureSpeechRecognitionLanguages,
-  azureSpeechRecognitionLanguagesLocale,
+  azureSpeechRecognitionLanguagesLocale
 };

@@ -6,7 +6,10 @@ interface SpeechGPTIconProps {
   strokeWidth?: string;
 }
 
-const SpeechGPTIcon: React.FC<SpeechGPTIconProps> = ({ className, strokeWidth }) => {
+const SpeechGPTIcon: React.FC<SpeechGPTIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       width="393"

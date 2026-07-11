@@ -18,5 +18,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'bold',
   regexp: BOLD_REG,
-  renderer,
+  renderer
 };

@@ -16,7 +16,7 @@ import {
   speechSynthesisSystemLanguages,
   awsRegions,
   azureRegions,
-  azureSpeechSynthesisLanguagesLocale,
+  azureSpeechSynthesisLanguagesLocale
 } from '../../constants/data';
 import { useGlobalStore } from '../../store/module';
 import { useTranslation } from 'react-i18next';
@@ -40,7 +40,9 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
   }
 
   function getAmazonPollyLanguageCode(language: string) {
-    return Object.keys(amazonPollyLanguages).find(key => amazonPollyLanguages[key] === language);
+    return Object.keys(amazonPollyLanguages).find(
+      key => amazonPollyLanguages[key] === language
+    );
   }
 
   function getAzureTTSLanguageCode(language: string) {
@@ -93,14 +95,20 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
       <SettingTitle text={i18n.t('setting.synthesis.service') as string} />
       <SettingGroup>
         {isMobile && (
-          <SettingWarningText text={i18n.t('setting.synthesis.mobile-not-supported') as string} />
+          <SettingWarningText
+            text={i18n.t('setting.synthesis.mobile-not-supported') as string}
+          />
         )}
         <SettingSelect
           text={i18n.t('setting.synthesis.synthesis-service') as string}
-          helpText={i18n.t('setting.synthesis.synthesis-service-tooltip') as string}
+          helpText={
+            i18n.t('setting.synthesis.synthesis-service-tooltip') as string
+          }
           options={speechSynthesisServices}
           value={speech.service}
-          selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+          selectClassName={
+            'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+          }
           onChange={e => setSpeech({ ...speech, service: e })}
         />
         {speech.service === 'Amazon Polly' && (
@@ -109,7 +117,11 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
             existEnvironmentVariable('AWS_ACCESS_KEY_ID') &&
             existEnvironmentVariable('AWS_ACCESS_KEY') ? (
               <SettingCheckText
-                text={i18n.t('setting.synthesis.polly-already-set-environment-variable') as string}
+                text={
+                  i18n.t(
+                    'setting.synthesis.polly-already-set-environment-variable'
+                  ) as string
+                }
               />
             ) : (
               <>
@@ -127,16 +139,24 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
                   id={'aws-access-key-id'}
                   type={'text'}
                   value={key.awsKeyId}
-                  placeholder={i18n.t('setting.synthesis.aws-access-key-id-placeholder') as string}
+                  placeholder={
+                    i18n.t(
+                      'setting.synthesis.aws-access-key-id-placeholder'
+                    ) as string
+                  }
                   onChange={e => setKey({ ...key, awsKeyId: e })}
                 />
                 <SettingInput
-                  text={i18n.t('setting.synthesis.aws-secret-access-key') as string}
+                  text={
+                    i18n.t('setting.synthesis.aws-secret-access-key') as string
+                  }
                   id={'aws-secret-access-key'}
                   type={'text'}
                   value={key.awsKey}
                   placeholder={
-                    i18n.t('setting.synthesis.aws-secret-access-key-placeholder') as string
+                    i18n.t(
+                      'setting.synthesis.aws-secret-access-key-placeholder'
+                    ) as string
                   }
                   onChange={e => setKey({ ...key, awsKey: e })}
                 />
@@ -146,9 +166,14 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
         )}
         {speech.service === 'Azure TTS' && (
           <>
-            {existEnvironmentVariable('AZURE_REGION') && existEnvironmentVariable('AZURE_KEY') ? (
+            {existEnvironmentVariable('AZURE_REGION') &&
+            existEnvironmentVariable('AZURE_KEY') ? (
               <SettingCheckText
-                text={i18n.t('setting.synthesis.azure-already-set-environment-variable') as string}
+                text={
+                  i18n.t(
+                    'setting.synthesis.azure-already-set-environment-variable'
+                  ) as string
+                }
               />
             ) : (
               <>
@@ -163,7 +188,11 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
                 />
                 <SettingInput
                   text={i18n.t('setting.synthesis.azure-access-key') as string}
-                  id={i18n.t('setting.synthesis.azure-access-key-placeholder') as string}
+                  id={
+                    i18n.t(
+                      'setting.synthesis.azure-access-key-placeholder'
+                    ) as string
+                  }
                   type={'text'}
                   value={key.azureKey}
                   placeholder={'Azure Access Key'}
@@ -178,17 +207,23 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
       {speech.service === 'System' && (
         <>
           <SettingDivider />
-          <SettingTitle text={i18n.t('setting.synthesis.properties') as string} />
+          <SettingTitle
+            text={i18n.t('setting.synthesis.properties') as string}
+          />
           <SettingGroup>
             <SettingSelect
               text={i18n.t('setting.synthesis.language') as string}
-              options={systemLanguages.map(language => speechSynthesisSystemLanguages[language])}
+              options={systemLanguages.map(
+                language => speechSynthesisSystemLanguages[language]
+              )}
               value={speechSynthesisSystemLanguages[speech.systemLanguage]}
-              selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+              selectClassName={
+                'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+              }
               onChange={e =>
                 setSpeech({
                   ...speech,
-                  systemLanguage: getSystemLanguageCode(e),
+                  systemLanguage: getSystemLanguageCode(e)
                 })
               }
             />
@@ -221,7 +256,9 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
               options={filteredVoices.map(voice => voice.name)}
               value={speech.systemVoice}
               className="w-56 pr-8"
-              selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+              selectClassName={
+                'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+              }
               onChange={e => setSpeech({ ...speech, systemVoice: e })}
             />
           </SettingGroup>
@@ -231,7 +268,9 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
       {speech.service === 'Amazon Polly' && (
         <>
           <SettingDivider />
-          <SettingTitle text={i18n.t('setting.synthesis.properties') as string} />
+          <SettingTitle
+            text={i18n.t('setting.synthesis.properties') as string}
+          />
           <SettingGroup>
             <SettingSelect
               text={i18n.t('setting.synthesis.language') as string}
@@ -241,7 +280,7 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
               onChange={e =>
                 setSpeech({
                   ...speech,
-                  pollyLanguage: getAmazonPollyLanguageCode(e),
+                  pollyLanguage: getAmazonPollyLanguageCode(e)
                 })
               }
             />
@@ -266,18 +305,22 @@ const SynthesisSection: React.FC<SynthesisSectionProps> = ({}) => {
       {speech.service === 'Azure TTS' && (
         <>
           <SettingDivider />
-          <SettingTitle text={i18n.t('setting.synthesis.properties') as string} />
+          <SettingTitle
+            text={i18n.t('setting.synthesis.properties') as string}
+          />
           <SettingGroup>
             <SettingSelect
               text={i18n.t('setting.synthesis.language') as string}
               className={'min-w-min pr-8 '}
-              selectClassName={'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'}
+              selectClassName={
+                'flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0'
+              }
               options={Object.values(azureSpeechSynthesisLanguagesLocale)}
               value={azureSpeechSynthesisLanguagesLocale[speech.azureLanguage]}
               onChange={e =>
                 setSpeech({
                   ...speech,
-                  azureLanguage: getAzureTTSLanguageCode(e),
+                  azureLanguage: getAzureTTSLanguageCode(e)
                 })
               }
             />

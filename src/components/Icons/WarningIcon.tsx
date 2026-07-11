@@ -6,7 +6,10 @@ interface WarningIconProps {
   strokeWidth?: string;
 }
 
-const WarningIcon: React.FC<WarningIconProps> = ({ className, strokeWidth }) => {
+const WarningIcon: React.FC<WarningIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

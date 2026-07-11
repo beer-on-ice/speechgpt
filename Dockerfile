@@ -1,5 +1,5 @@
-# Use the ARM64 Node.js image as the builder stage
-FROM node:18-bullseye-slim AS builder
+# Use the Bun image as the builder stage
+FROM oven/bun:1 AS builder
 
 ARG VITE_OPENAI_API_KEY=REPLACE_WITH_YOUR_OWN
 ARG VITE_OPENAI_HOST=REPLACE_WITH_YOUR_OWN
@@ -18,10 +18,10 @@ ENV VITE_OPENAI_API_KEY=$VITE_OPENAI_API_KEY \
     VITE_AZURE_KEY=$VITE_AZURE_KEY
 
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 COPY . .
-RUN yarn build
+RUN bun run build
 
 # Use a smaller ARM64-compatible base image for the final stage
 FROM arm64v8/nginx:alpine

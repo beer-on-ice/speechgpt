@@ -19,7 +19,9 @@ interface SettingDialogProps {
 function SettingDialog({ open, onClose }: SettingDialogProps) {
   const { i18n } = useTranslation();
 
-  const [selected, setSelected] = useState<string>(i18n.t('setting.chat.title') as string);
+  const [selected, setSelected] = useState<string>(
+    i18n.t('setting.chat.title') as string
+  );
 
   useEffect(() => {
     setSelected(i18n.t('setting.chat.title') as string);
@@ -28,14 +30,14 @@ function SettingDialog({ open, onClose }: SettingDialogProps) {
   const catalogItems = [
     i18n.t('setting.chat.title') as string,
     i18n.t('setting.synthesis.title') as string,
-    i18n.t('setting.recognition.title') as string,
+    i18n.t('setting.recognition.title') as string
     // i18n.t('setting.about.title') as string,
   ];
 
   const catalogIcons = [
     <ChatIcon className="w-5 h-5" />,
     <SpeakerIcon className="w-5 h-5" />,
-    <MicrophoneIcon className="w-5 h-5" />,
+    <MicrophoneIcon className="w-5 h-5" />
     // <AboutIcon className="w-5 h-5" />,
   ];
 

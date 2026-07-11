@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
 import { EllipsisVerticalIcon } from '@heroicons/react/24/outline';
-import { IconInfoCircle, IconMessage2, IconSettings } from '@tabler/icons-react';
+import {
+  IconInfoCircle,
+  IconMessage2,
+  IconSettings
+} from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 
 interface EllipsisMenuProps {
@@ -21,9 +25,17 @@ function EllipsisMenu({ setOpenSetting, setOpenAbout }: EllipsisMenuProps) {
   }
 
   const buttons = [
-    { name: i18n.t('common.setting'), icon: IconSettings, onClick: () => setOpenSetting(true) },
-    { name: i18n.t('common.feedback'), icon: IconMessage2, onClick: handleFeedback },
-    { name: i18n.t('common.about'), icon: IconInfoCircle, onClick: handleAbout },
+    {
+      name: i18n.t('common.setting'),
+      icon: IconSettings,
+      onClick: () => setOpenSetting(true)
+    },
+    {
+      name: i18n.t('common.feedback'),
+      icon: IconMessage2,
+      onClick: handleFeedback
+    },
+    { name: i18n.t('common.about'), icon: IconInfoCircle, onClick: handleAbout }
   ];
 
   return (

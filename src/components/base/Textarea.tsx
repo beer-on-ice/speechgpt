@@ -16,7 +16,7 @@ export default function Textarea({
   onChange,
   placeholder,
   onKeyDown,
-  maxRows,
+  maxRows
 }: TextareaProps) {
   const [inputValue, setInputValue] = useState(value || '');
 

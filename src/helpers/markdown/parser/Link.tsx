@@ -28,5 +28,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'link',
   regexp: LINK_REG,
-  renderer,
+  renderer
 };

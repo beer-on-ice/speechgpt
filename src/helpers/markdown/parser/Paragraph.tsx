@@ -11,5 +11,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'paragraph',
   regexp: PARAGRAPH_REG,
-  renderer,
+  renderer
 };

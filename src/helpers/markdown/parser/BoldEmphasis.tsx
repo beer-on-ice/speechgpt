@@ -22,5 +22,5 @@ const renderer = (rawStr: string) => {
 export default {
   name: 'bold emphasis',
   regexp: BOLD_EMPHASIS_REG,
-  renderer,
+  renderer
 };

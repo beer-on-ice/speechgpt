@@ -18,14 +18,14 @@ export const initialState: SessionState = {
       stats: {
         messageCount: 0,
         tokenCount: 0,
-        characterCount: 0,
+        characterCount: 0
       },
       chat: {
         systemRole: '',
         defaultPrompt: '',
         useAssistant: true,
         temperature: 0.8,
-        maxMessages: 20,
+        maxMessages: 20
       },
       speech: {
         service: 'System',
@@ -37,17 +37,17 @@ export const initialState: SessionState = {
         pollyVoice: '',
         pollyEngine: 'Standard',
         azureLanguage: 'en-US',
-        azureVoice: '',
+        azureVoice: ''
       },
       voice: {
         service: 'System',
         systemLanguage: 'en-US',
         azureLanguage: 'en-US',
         autoStart: false,
-        startTime: 1,
-      },
-    },
-  ],
+        startTime: 1
+      }
+    }
+  ]
 };
 
 export const sessionSlice = createSlice({
@@ -72,14 +72,14 @@ export const sessionSlice = createSlice({
         stats: {
           messageCount: messageCount || 0,
           tokenCount: 0,
-          characterCount: 0,
+          characterCount: 0
         },
         chat: {
           systemRole: '',
           defaultPrompt: '',
           useAssistant: true,
           temperature: 0.8,
-          maxMessages: 20,
+          maxMessages: 20
         },
         speech: {
           service: 'System',
@@ -91,15 +91,15 @@ export const sessionSlice = createSlice({
           pollyVoice: '',
           pollyEngine: 'Standard',
           azureLanguage: 'en-US',
-          azureVoice: '',
+          azureVoice: ''
         },
         voice: {
           service: 'System',
           systemLanguage: 'en-US',
           azureLanguage: 'en-US',
           autoStart: false,
-          startTime: 1,
-        },
+          startTime: 1
+        }
       });
     },
     removeSession: (state, action) => {
@@ -136,8 +136,8 @@ export const sessionSlice = createSlice({
       if (index !== -1) {
         state.sessions[index].icon = icon;
       }
-    },
-  },
+    }
+  }
 });
 
 export const {
@@ -149,7 +149,7 @@ export const {
   clearSessions,
   setMessageCount,
   setLiked,
-  setIcon,
+  setIcon
 } = sessionSlice.actions;
 
 export default sessionSlice.reducer;

@@ -6,7 +6,10 @@ interface RightTriangleIconProps {
   strokeWidth?: string;
 }
 
-const RightTriangleIcon: React.FC<RightTriangleIconProps> = ({ className, strokeWidth }) => {
+const RightTriangleIcon: React.FC<RightTriangleIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

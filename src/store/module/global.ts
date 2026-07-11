@@ -7,7 +7,11 @@ function deepMerge(obj1: any, obj2: any) {
 
   for (const key in obj2) {
     if (obj2.hasOwnProperty(key)) {
-      if (typeof obj2[key] === 'object' && obj2[key] !== null && !Array.isArray(obj2[key])) {
+      if (
+        typeof obj2[key] === 'object' &&
+        obj2[key] !== null &&
+        !Array.isArray(obj2[key])
+      ) {
         result[key] = deepMerge(obj1[key], obj2[key]);
       } else {
         result[key] = obj2[key];
@@ -33,14 +37,15 @@ const defaultGlobalState = {
     awsKeyId: '',
     awsKey: '',
     azureRegion: '',
-    azureKey: '',
+    azureKey: ''
   },
   chat: {
-    systemRole: 'From now on, the number of words in your reply cannot exceed 50 words.',
+    systemRole:
+      'From now on, the number of words in your reply cannot exceed 50 words.',
     defaultPrompt: '',
     useAssistant: true,
     temperature: 0.8,
-    maxMessages: 20,
+    maxMessages: 20
   },
   speech: {
     service: 'System',
@@ -52,15 +57,15 @@ const defaultGlobalState = {
     pollyVoice: '',
     pollyEngine: 'Standard',
     azureLanguage: 'en-US',
-    azureVoice: '',
+    azureVoice: ''
   },
   voice: {
     service: 'System',
     systemLanguage: 'en-US',
     azureLanguage: 'en-US',
     autoStart: false,
-    startTime: 1,
-  },
+    startTime: 1
+  }
 };
 
 export const initialGlobalState = () => {
@@ -75,7 +80,7 @@ export const initialGlobalState = () => {
     for (let [key, value] of Object.entries(state)) {
       store.dispatch({
         type: `global/set${key.charAt(0).toUpperCase() + key.slice(1)}`,
-        payload: value,
+        payload: value
       });
     }
 
@@ -126,7 +131,10 @@ export const useGlobalStore = () => {
   };
 
   const setDisableMicrophone = (disableMicrophone: boolean) => {
-    dispatch({ type: 'global/setDisableMicrophone', payload: disableMicrophone });
+    dispatch({
+      type: 'global/setDisableMicrophone',
+      payload: disableMicrophone
+    });
   };
 
   const setKey = (key: any) => {
@@ -155,6 +163,6 @@ export const useGlobalStore = () => {
     setKey,
     setChat,
     setSpeech,
-    setVoice,
+    setVoice
   };
 };

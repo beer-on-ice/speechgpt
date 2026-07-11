@@ -1,5 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { MoonIcon, SunIcon, ComputerDesktopIcon, CheckIcon } from '@heroicons/react/20/solid';
+import {
+  MoonIcon,
+  SunIcon,
+  ComputerDesktopIcon,
+  CheckIcon
+} from '@heroicons/react/20/solid';
 import { Menu } from '@headlessui/react';
 import DropdownMenu from './base/DropdownMenu';
 import Tippy from '@tippyjs/react';
@@ -36,7 +41,9 @@ function AppearanceSelector() {
           document.documentElement.classList.add('dark');
           break;
         case 'system':
-          const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          const darkModeMediaQuery = window.matchMedia(
+            '(prefers-color-scheme: dark)'
+          );
           if (darkModeMediaQuery.matches) {
             document.documentElement.classList.add('dark');
           } else {
@@ -54,8 +61,8 @@ function AppearanceSelector() {
     {
       key: 'system',
       label: 'System',
-      icon: <ComputerDesktopIcon className="h-6 w-6" />,
-    },
+      icon: <ComputerDesktopIcon className="h-6 w-6" />
+    }
   ];
 
   const button = (
@@ -80,7 +87,9 @@ function AppearanceSelector() {
           {({ active }) => (
             <button
               className={`${
-                active ? 'bg-indigo-500 text-gray-100 active:bg-indigo-600' : 'text-gray-700'
+                active
+                  ? 'bg-indigo-500 text-gray-100 active:bg-indigo-600'
+                  : 'text-gray-700'
               } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
               onClick={() => setAppearance(option.key)}
             >
@@ -88,7 +97,9 @@ function AppearanceSelector() {
               <span className="ml-2">{option.label}</span>
               {appearance === option.key && (
                 <CheckIcon
-                  className={`${active ? ' text-gray-100' : 'text-gray-700'} ml-auto h-5 w-5`}
+                  className={`${
+                    active ? ' text-gray-100' : 'text-gray-700'
+                  } ml-auto h-5 w-5`}
                   aria-hidden="true"
                 />
               )}

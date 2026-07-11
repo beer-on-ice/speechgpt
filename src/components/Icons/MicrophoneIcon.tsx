@@ -6,7 +6,10 @@ interface MicrophoneIconProps {
   strokeWidth?: string;
 }
 
-const MicrophoneIcon: React.FC<MicrophoneIconProps> = ({ className, strokeWidth }) => {
+const MicrophoneIcon: React.FC<MicrophoneIconProps> = ({
+  className,
+  strokeWidth
+}) => {
   return (
     <svg
       className={classNames('', className)}

@@ -35,7 +35,7 @@ export const blockElementParserList = [
   OrderedList,
   UnorderedList,
   HorizontalRules,
-  Paragraph,
+  Paragraph
 ];
 
 export const inlineElementParserList = [
@@ -48,5 +48,5 @@ export const inlineElementParserList = [
   PlainLink,
   Strikethrough,
   Tag,
-  PlainText,
+  PlainText
 ];

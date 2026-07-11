@@ -20,25 +20,33 @@ function Record({
   setRecording,
   status,
   setStatus,
-  language,
+  language
 }: RecordProps) {
   // https://github.com/Riley-Brown/react-speech-to-text
-  const { error, interimResult, isRecording, results, startSpeechToText, stopSpeechToText } =
-    useSpeechToText({
-      continuous: true,
-      useLegacyResults: false,
-      speechRecognitionProperties: {
-        lang: language,
-      },
-    }) as {
-      error: string;
-      interimResult: string | undefined;
-      isRecording: boolean;
-      results: ResultType[];
-      setResults: import('react').Dispatch<import('react').SetStateAction<ResultType[]>>;
-      startSpeechToText: () => Promise<void>;
-      stopSpeechToText: () => void;
-    };
+  const {
+    error,
+    interimResult,
+    isRecording,
+    results,
+    startSpeechToText,
+    stopSpeechToText
+  } = useSpeechToText({
+    continuous: true,
+    useLegacyResults: false,
+    speechRecognitionProperties: {
+      lang: language
+    }
+  }) as {
+    error: string;
+    interimResult: string | undefined;
+    isRecording: boolean;
+    results: ResultType[];
+    setResults: import('react').Dispatch<
+      import('react').SetStateAction<ResultType[]>
+    >;
+    startSpeechToText: () => Promise<void>;
+    stopSpeechToText: () => void;
+  };
 
   useEffect(() => {
     console.log('error', error);
