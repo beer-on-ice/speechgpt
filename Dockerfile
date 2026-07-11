@@ -23,8 +23,8 @@ RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 
-# Use a smaller ARM64-compatible base image for the final stage
-FROM arm64v8/nginx:alpine
+# Use the multi-arch nginx image for the final stage
+FROM nginx:alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf
 WORKDIR /usr/share/nginx/html
